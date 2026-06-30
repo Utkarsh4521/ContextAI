@@ -1,5 +1,5 @@
 # 🚀 FastAPI React Chat: Full-Stack AI Assistant
-![App Screenshot](docs/screenshot.png)
+
 
 A powerful, full-stack AI Chat application built to master modern web development technologies. This project seamlessly integrates a high-performance **FastAPI** backend with a dynamic **React** frontend, utilizing **PostgreSQL** for robust data persistence and **OpenAI** for intelligent responses.
 
@@ -26,7 +26,6 @@ Designed with **N-Layer Architecture**, this project serves as a comprehensive e
 | **Tools**       | Git, Docker (Optional)     |
 
 ---
-
 ## 🚀 Quick Start
 
 ### Prerequisites
