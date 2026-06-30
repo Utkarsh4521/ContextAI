@@ -1,10 +1,4 @@
 # 🚀 FastAPI React Chat: Full-Stack AI Assistant
-
-![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
-![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
-
 ![App Screenshot](docs/screenshot.png)
 
 A powerful, full-stack AI Chat application built to master modern web development technologies. This project seamlessly integrates a high-performance **FastAPI** backend with a dynamic **React** frontend, utilizing **PostgreSQL** for robust data persistence and **OpenAI** for intelligent responses.
@@ -29,7 +23,7 @@ Designed with **N-Layer Architecture**, this project serves as a comprehensive e
 | **Frontend**    | React, Vite, JavaScript, CSS3       |
 | **Database**    | PostgreSQL                          |
 | **AI Engine**   | gemini api                          |
-| **Tools**       | Git, Docker (Optional), ngrok       |
+| **Tools**       | Git, Docker (Optional)     |
 
 ---
 
