@@ -9,7 +9,7 @@
 #         self.role = role
 #         self.content = content
 
-# class OpenAIClient:
+# class Gemai:
 #     def __init__(self, system_prompt):
 #         # Nayi library ke sath client initialization
 #         self.client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
@@ -47,13 +47,12 @@ class AIChatMessage:
         self.role = role
         self.content = content
 
-class OpenAIClient:
+class Gemai:
     def __init__(self, system_prompt):
         # Nayi library client initialize karega automatically check karke GOOGLE_API_KEY env var
         self.client = genai.Client()
         self.system_prompt = system_prompt
-        # Gemini 3.5 Flash use karenge jo tumhari list mein active dikh raha hai
-        self.model_name = "gemini-3.5-flash" 
+        self.model_name = "gemini-3.1-flash-lite"
 
     def chat(self, prompt, history=None):
         try:
