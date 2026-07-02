@@ -4,9 +4,7 @@ import Message from "./components/Message";
 import WelcomeScreen from "./components/WelcomeScreen";
 import InputArea from "./components/InputArea";
 
-// const API_BASE = import.meta.env.VITE_API_URL || "";
-// Purana: const API_BASE = import.meta.env.VITE_API_URL || "";
-// Naya:
+
 const API_BASE = "http://localhost:8000";
 
 const useMobile = () => {

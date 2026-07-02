@@ -10,10 +10,10 @@ export default function WelcomeScreen({ onSuggestionClick }) {
                 <button className="suggestion-btn" onClick={() => onSuggestionClick("What can I do with Python?")}>
                     💡 What can I do with Python?
                 </button>
-                <button className="suggestion-btn" onClick={() => onSuggestionClick("FastAPI nedir ve neden kullanılır?")}>
+                <button className="suggestion-btn" onClick={() => onSuggestionClick("What is FastAPI?")}>
                     🚀 What is fastapi?
                 </button>
-                <button className="suggestion-btn" onClick={() => onSuggestionClick("Bana bir Give me daily motivation ver")}>
+                <button className="suggestion-btn" onClick={() => onSuggestionClick("Give me daily motivation")}>
                     ✨ Give me daily motivation
                 </button>
             </div>
