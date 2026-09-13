@@ -11,8 +11,8 @@ async def get_user_identifier(
     credentials: Optional[HTTPAuthorizationCredentials] = Depends(security),
 ):
     """
-    JWT token'dan kullanıcı kimliğini çıkarır.
-    Token yoksa anonim kullanıcı olarak işaretler.
+    JWT token se user identity nikalta hai.
+    Agar token nahi hai toh usko anonymous user mark kar deta hai.
     """
     if credentials is None:
         return "global_unauthenticated_user"

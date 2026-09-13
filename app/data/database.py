@@ -2,20 +2,20 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from app.config.settings import DATABASE_URL
 
-# Veritabanı motoru
+# Database engine
 engine = create_engine(DATABASE_URL)
 
-# Session fabrikası — her istek için yeni bir oturum üretir
+# Session factory - har request ke liye naya session banata hai
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-# Tüm modellerin atası
+# Saare models ka base
 Base = declarative_base()
 
 
 def get_db():
     """
-    Her API isteğinde yeni bir veritabanı oturumu açar,
-    istek bitince otomatik kapatır. (Depends ile kullanılır)
+    Har API request pe naya database session kholta hai,
+    request khatam hone par automatically close kar deta hai. (Depends ke sath use hota hai)
     """
     db = SessionLocal()
     try:

@@ -104,6 +104,22 @@ export default function App() {
     if (isMob) setSideOpen(false);
   };
 
+  const deleteChat = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this chat?")) return;
+    try {
+      const res = await fetch(`${API_BASE}/conversations/${id}`, { 
+        method: "DELETE",
+        headers: getHeaders() 
+      });
+      if (res.ok) {
+        if (activeId === id) clearChat();
+        fetchConvs();
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   const exportChat = () => {
     if (msgs.length === 0) return;
     const txt = msgs.map((m) => `${m.role.toUpperCase()}: ${m.content}\n`).join("\n");
@@ -130,6 +146,7 @@ export default function App() {
     <div className="app-container">
       <Sidebar
         isOpen={sideOpen}
+        onDeleteChat={deleteChat}
         toggle={() => setSideOpen(!sideOpen)}
         conversations={convs}
         currentConvId={activeId}

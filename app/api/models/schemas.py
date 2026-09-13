@@ -3,13 +3,13 @@ from datetime import datetime
 from pydantic import BaseModel
 
 
-# --- Request modelleri ---
+# --- Request models ---
 class ChatRequest(BaseModel):
     prompt: str
     conversation_id: Optional[str] = None
 
 
-# --- Response modelleri ---
+# --- Response models ---
 class ChatResponse(BaseModel):
     response: str
     conversation_id: str

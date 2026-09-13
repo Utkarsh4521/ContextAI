@@ -15,7 +15,7 @@ async def chat(
     user_id: str = Depends(get_user_identifier),
     db: Session = Depends(get_db),
 ):
-    """AI ile sohbet et. Mesaj geçmişi otomatik olarak hatırlanır."""
+    """AI ke sath chat karo. Message history automatically yaad rakhi jati hai."""
     apply_rate_limit(user_id)
     result = chat_service.send_message(
         db, user_id=user_id,

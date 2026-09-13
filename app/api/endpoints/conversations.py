@@ -16,7 +16,7 @@ async def list_conversations(
     user_id: str = Depends(get_user_identifier),
     db: Session = Depends(get_db),
 ):
-    """Kullanıcının konuşma listesini getirir."""
+    """User ki conversation list laata hai."""
     convs = chat_dao.get_conversations(db, user_id=user_id)
     return [
         ConversationItem(
@@ -35,7 +35,7 @@ async def get_conversation(
     user_id: str = Depends(get_user_identifier),
     db: Session = Depends(get_db),
 ):
-    """Belirli bir konuşmanın tüm mesajlarını getirir."""
+    """Ek specific conversation ke saare messages laata hai."""
     return chat_dao.get_conversation_messages(
         db, conversation_id=conversation_id, user_id=user_id,
     )
@@ -47,7 +47,7 @@ async def delete_conversation(
     user_id: str = Depends(get_user_identifier),
     db: Session = Depends(get_db),
 ):
-    """Belirli bir konuşmayı siler."""
+    """Ek specific conversation delete karta hai."""
     deleted = chat_dao.delete_conversation(
         db, conversation_id=conversation_id, user_id=user_id,
     )
@@ -59,6 +59,6 @@ async def delete_all(
     user_id: str = Depends(get_user_identifier),
     db: Session = Depends(get_db),
 ):
-    """Tüm sohbet geçmişini siler."""
+    """Saari chat history delete karta hai."""
     deleted = chat_dao.delete_all_history(db, user_id=user_id)
     return DeleteResponse(message="All history deleted.", deleted_count=deleted)

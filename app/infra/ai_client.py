@@ -49,10 +49,10 @@ class AIChatMessage:
 
 class Gemai:
     def __init__(self, system_prompt):
-        # Nayi library client initialize karega automatically check karke GOOGLE_API_KEY env var
-        self.client = genai.Client()
+        # Environment se explicitly GOOGLE_API_KEY paas karo
+        self.client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
         self.system_prompt = system_prompt
-        self.model_name = "gemini-3.1-flash-lite"
+        self.model_name = "gemini-3.6-flash"
 
     def chat(self, prompt, history=None):
         try:

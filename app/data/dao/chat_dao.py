@@ -4,7 +4,7 @@ from app.domain.entities import ChatHistory
 
 
 def save_chat(db: Session, conversation_id: str, user_id: str, prompt: str, response: str):
-    """Yeni bir sohbet kaydını veritabanına kaydet."""
+    """Naya chat record database me save karo."""
     chat = ChatHistory(
         conversation_id=conversation_id,
         user_id=user_id,
@@ -18,7 +18,7 @@ def save_chat(db: Session, conversation_id: str, user_id: str, prompt: str, resp
 
 
 def get_conversations(db: Session, user_id: str, limit: int = 20):
-    """Kullanıcının konuşma listesini getir."""
+    """User ki conversation list laao."""
     return (
         db.query(
             ChatHistory.conversation_id,
@@ -35,7 +35,7 @@ def get_conversations(db: Session, user_id: str, limit: int = 20):
 
 
 def get_conversation_messages(db: Session, conversation_id: str, user_id: str):
-    """Belirli bir konuşmanın tüm mesajlarını getir."""
+    """Specific conversation ke saare messages laao."""
     return (
         db.query(ChatHistory)
         .filter(
@@ -48,7 +48,7 @@ def get_conversation_messages(db: Session, conversation_id: str, user_id: str):
 
 
 def get_recent_messages(db: Session, conversation_id: str, limit: int = 10):
-    """Bir konuşmanın son N mesajını getir (AI hafızası için)."""
+    """Ek conversation ke aakhiri N messages laao (AI memory ke liye)."""
     messages = (
         db.query(ChatHistory)
         .filter(ChatHistory.conversation_id == conversation_id)
@@ -60,7 +60,7 @@ def get_recent_messages(db: Session, conversation_id: str, limit: int = 10):
 
 
 def delete_conversation(db: Session, conversation_id: str, user_id: str):
-    """Belirli bir konuşmayı sil."""
+    """Specific conversation ko delete karo."""
     deleted = (
         db.query(ChatHistory)
         .filter(
@@ -74,7 +74,7 @@ def delete_conversation(db: Session, conversation_id: str, user_id: str):
 
 
 def delete_all_history(db: Session, user_id: str):
-    """Tüm sohbet geçmişini sil."""
+    """Saari chat history delete karo."""
     deleted = (
         db.query(ChatHistory)
         .filter(ChatHistory.user_id == user_id)

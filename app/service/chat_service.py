@@ -15,10 +15,10 @@ g_client = Gemai(system_prompt=load_system_prompt())
 
 
 def send_message(db: Session, user_id: str, prompt: str, conversation_id: str = None) -> dict:
-    # Generate a new unique conversation ID if not provided
+    # Agar provide nahi kiya hai toh naya unique conversation ID banao
     conv_id = conversation_id or str(uuid.uuid4())
 
-    #Retrieve recent messages to maintain context
+    # Context maintain karne ke liye recent messages laao
     history = []
     if conversation_id:
         recent = chat_dao.get_recent_messages(db, conv_id, limit=10)
@@ -27,7 +27,7 @@ def send_message(db: Session, user_id: str, prompt: str, conversation_id: str = 
             history.append(AIChatMessage(role="assistant", content=msg.response))
     response_text = g_client.chat(prompt, history=history)
 
-    # Persist the transaction into the database
+    # Transaction ko database me save karo
     chat_dao.save_chat(
         db, conversation_id=conv_id, user_id=user_id,
         prompt=prompt, response=response_text,

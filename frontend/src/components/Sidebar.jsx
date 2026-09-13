@@ -7,6 +7,7 @@ export default function Sidebar({
     currentConvId,
     onLoadConversation,
     onNewChat,
+    onDeleteChat,
     token,
     setToken,
     isMobile
@@ -23,7 +24,7 @@ export default function Sidebar({
             <aside className={`sidebar ${isOpen ? "open" : "closed"}`}>
                 <div className="sidebar-header">
                     <div className="sidebar-logo">
-                        <span>⚡</span> {!isOpen && !isMobile ? "" : "FASTAPI AI"}
+                        <span>🤖</span> {!isOpen && !isMobile ? "" : "ContextAI"}
                     </div>
                     <button
                         className="new-chat-btn"
@@ -37,7 +38,7 @@ export default function Sidebar({
 
                 <div className="sidebar-conversations">
                     {(!isOpen && !isMobile) ? (
-                        // Kapalı modda sadece ikon veya ince çizgi
+                        // Band mode mein sirf icon ya patli line
                         <div className="sidebar-divider"></div>
                     ) : (
                         <div className="sidebar-label">chat history</div>
@@ -59,10 +60,17 @@ export default function Sidebar({
                                 <span className="conv-icon">💬</span>
                             ) : (
                                 <>
-                                    <span className="conv-title">
+                                    <span className="conv-title" style={{ flex: 1 }}>
                                         {conv.title.substring(0, 30)}{conv.title.length > 30 ? "..." : ""}
                                     </span>
-                                    {conv.message_count > 1 && <span className="msg-count">({conv.message_count})</span>}
+                                    <span 
+                                        className="delete-btn"
+                                        onClick={(e) => { e.stopPropagation(); onDeleteChat(conv.conversation_id); }}
+                                        title="Delete chat"
+                                        style={{ fontSize: "12px", opacity: 0.7 }}
+                                    >
+                                        🗑️
+                                    </span>
                                 </>
                             )}
                         </div>
@@ -71,7 +79,7 @@ export default function Sidebar({
 
                 <div className="sidebar-footer">
                     {(!isOpen && !isMobile) ? (
-                        <div className="auth-icon" title={token.trim() ? "Token Aktif" : "Anonim"}>
+                        <div className="auth-icon" title={token.trim() ? "Token Active" : "Anonymous"}>
                             {token.trim() ? "🔐" : "🔓"}
                         </div>
                     ) : (
@@ -80,12 +88,12 @@ export default function Sidebar({
                             <input
                                 className="token-input"
                                 type="password"
-                                placeholder="Token yapıştır..."
+                                placeholder="Paste token..."
                                 value={token}
                                 onChange={(e) => setToken(e.target.value)}
                             />
                             <div className={`auth-badge ${token.trim() ? "authed" : "anon"}`}>
-                                {token.trim() ? "🔐 Token aktif" : "🔓 Hello! stranger "}
+                                {token.trim() ? "🔐 Token active" : "🔓 Hello! stranger "}
                             </div>
                         </div>
                     )}

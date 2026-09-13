@@ -1,7 +1,7 @@
 import os
 
-# --- Uygulama Ayarları ---
-# Tüm konfigürasyon değerleri tek bir yerde toplanır.
+# --- App Settings ---
+# Saare configuration values ek hi jagah par hain.
 
 # PostgreSQL
 DATABASE_URL = os.getenv(
@@ -18,6 +18,6 @@ JWT_SECRET_KEY = "a-string-secret-at-least-256-bits-long"
 JWT_ALGORITHM = "HS256"
 
 # Rate Limiting
-RATE_LIMIT_AUTH = 5       # Kimliği doğrulanmış kullanıcı: 5 istek/dk
-RATE_LIMIT_ANON = 3       # Anonim kullanıcı: 3 istek/dk
-RATE_LIMIT_WINDOW = 60    # Zaman penceresi (saniye)
+RATE_LIMIT_AUTH = 5       # Authenticated user ke liye: 5 requests/min
+RATE_LIMIT_ANON = 3       # Anonymous user ke liye: 3 requests/min
+RATE_LIMIT_WINDOW = 60    # Time window (seconds mein)

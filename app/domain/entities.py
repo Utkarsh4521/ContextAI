@@ -4,8 +4,8 @@ from app.data.database import Base
 
 class ChatHistory(Base):
     """
-    Sohbet geçmişi tablosu.
-    Her satır bir kullanıcı-AI mesaj çiftini temsil eder.
+    Chat history table.
+    Har row ek user-AI message pair ko represent karta hai.
     """
     __tablename__ = "chat_history"
 
