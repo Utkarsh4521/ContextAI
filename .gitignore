@@ -29,3 +29,5 @@ baslat.bat
 env/
 __pycache__/
 node_modules/
+
+api key.txt
